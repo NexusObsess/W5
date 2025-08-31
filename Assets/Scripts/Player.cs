@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] float speed;
     Rigidbody2D rb;
@@ -21,22 +21,23 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             for (int i = enemy.Count - 1; i >= 0; i--)
             {
                 enemy[i].TakeDamage(1, i, this);
             }
-           
+
         }
     }
 
-    public void RemoveEnemy()
+    public void RemoveEnemy(int id)
     {
         enemy.RemoveAt(id);
     }
 
-    public void Addenemy()
+    public void Addenemy(Enemy e)
     {
-
+        enemy.Add(e);
     }
 
     // Update is called once per frame
